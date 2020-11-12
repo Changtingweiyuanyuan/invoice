@@ -3,8 +3,7 @@
 //將發票的號碼及相關資訊寫入資料庫
 
 
-$dsn="mysql:host=localhost;dbname=invoice;chrset=utf8";
-$pdo=new PDO($dsn,'root','');
+include_once "../base.php";
 
 
 // foreach($_POST as $key => $value){
@@ -41,6 +40,7 @@ echo $sql;
 $pdo->exec($sql);
 
 echo "新增完成";
+// 可以把header拿掉 檢查印出的是否有錯
 header("location:../index.php");
 
 
