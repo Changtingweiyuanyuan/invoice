@@ -15,7 +15,7 @@
 
 
 
-<nav class="container col-8">
+<nav class="container col-lg-8 col-md-10">
 <ul class="nav justify-content-around nav-tabs border p-3">
 
 <!-- 建立陣列 -->
@@ -39,7 +39,7 @@ $m=ceil(date("m")/2);
 </ul>
 
 
-<div class="border d-flex justify-content-center p-2">
+<div class="border d-flex justify-content-around p-2">
 
 <!-- 中間內容 -->
 
