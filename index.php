@@ -35,7 +35,7 @@ $m=ceil(date("m")/2);
     <il class="nav-item"><?=$month[$m];?></il>
     <il class="nav-item"><a href="?do=invoice_list">當期發票</a></il>
     <il class="nav-item"><a href="#">兌獎</a></il>
-    <il class="nav-item"><a href="#">輸入獎號</a></il>
+    <il class="nav-item"><a href="?do=add_awards">輸入獎號</a></il>
 </ul>
 
 
