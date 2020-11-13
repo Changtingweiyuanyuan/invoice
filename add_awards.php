@@ -1,14 +1,12 @@
-<?php
-include_once "base.php";
-?>
+
 <form action="api/add_award_number.php" method="post">
-<table class="table table-sm" summary="統一發票中獎號碼單">
-    <tbody>
-        <tr>
+<table class="table table-bordered table-sm" summary="統一發票中獎號碼單"> 
+<tbody>
+    <tr> 
             <th id="months">年月份</th>
             <td headers="months" class="title">
                 <input type="number" name="year" step="1" min="<?=date("Y")-1?>" max="<?=date("Y")+1?>" value="<?=date("Y")?>">年
-                <select name="month">
+                <select name="period">
                     <option value="1">1-2</option>
                     <option value="2">3-4</option>
                     <option value="3">5-6</option>
@@ -39,9 +37,10 @@ include_once "base.php";
         <tr>
             <th id="firstPrize" rowspan="2">頭獎</th>
             <td headers="firstPrize" class="number">
-                <input type="number" name="first_prize" min="00000001" max="99999999">
-                <input type="number" name="first_prize" min="00000001" max="99999999">
-                <input type="number" name="first_prize" min="00000001" max="99999999">
+                <!-- 用陣列的方式儲存 first_prize就不會一直被覆蓋 不然$_POST['first_prize']會一直被覆蓋 -->
+                <input type="number" name="first_prize[]" min="00000001" max="99999999">
+                <input type="number" name="first_prize[]" min="00000001" max="99999999">
+                <input type="number" name="first_prize[]" min="00000001" max="99999999">
                 <p></p>
             </td>
         </tr>
@@ -71,9 +70,10 @@ include_once "base.php";
         <tr>
             <th id="addSixPrize">增開六獎</th>
             <td headers="addSixPrize" class="number">
-                <input type="number" name="add_six_prize" min="001" max="999">
-                <input type="number" name="add_six_prize" min="001" max="999">
-                <input type="number" name="add_six_prize" min="001" max="999">
+                <!-- 用陣列的方式儲存 add_six_prize就不會一直被覆蓋 不然$_POST['add_six_prize']會一直被覆蓋 -->
+                <input type="number" name="add_six_prize[]" min="001" max="999">
+                <input type="number" name="add_six_prize[]" min="001" max="999">
+                <input type="number" name="add_six_prize[]" min="001" max="999">
             </td>
         </tr>
     </tbody>
