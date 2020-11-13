@@ -23,7 +23,7 @@ $rows=$pdo->query($sql)->fetchAll();
         <td><?=$row['payment'];?></td>
         <td>
             <button class="btn btn-sm btn-light"><a class="text-dark" href="?do=edit_invoice&id=<?=$row['id'];?>">編輯</a></button>
-            <button class="btn btn-sm alert-danger">刪除</button>
+            <button class="btn btn-sm alert-danger"><a class="text-dark" href="?do=del_invoice&id=<?=$row['id'];?>">刪除</a></button>
         </td>
     </tr>
     <?php

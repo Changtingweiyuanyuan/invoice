@@ -20,6 +20,7 @@ $pdo->exec($sql);
 
 if($pdo->exec($sql)==0){
     header("location:../index.php?do=invoice_list");
+    
 }else{echo '更新失敗';}
 // header("location:../index.php?do=invoice_list");
 
