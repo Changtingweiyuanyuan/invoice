@@ -11,6 +11,42 @@
 </head>
 <body>
 
+<h3 class="text-center p-3">統一發票紀錄</h3>
+
+
+
+<nav class="container col-8">
+<ul class="nav justify-content-around nav-tabs border p-3">
+
+<!-- 建立陣列 -->
+<?php
+    $month=[
+        1=>'1,2月',
+        2=>'3,4月',
+        3=>'5,6月',
+        4=>'7,8月',
+        5=>'9,10月',
+        6=>'11,12月'
+    ];
+$m=ceil(date("m")/2);
+
+?>
+    <il class="nav-item"><a href="index.php">回首頁</a></il>
+    <il class="nav-item"><?=$month[$m];?></il>
+    <il class="nav-item"><a href="?do=invoice_list">當期發票</a></il>
+    <il class="nav-item"><a href="#">兌獎</a></il>
+    <il class="nav-item"><a href="#">輸入獎號</a></il>
+</ul>
+
+
+<div class="border d-flex justify-content-center p-2">
+
+<!-- 中間內容 -->
+
+
+
+
+
 
 <!-- 用include來寫主要程式,<head><body>不用一直重新寫 -->
 <!-- 但要寫:什麼時候該引入對的畫面 -->
@@ -24,6 +60,9 @@ if(isset($_GET['do'])){
 include "main.php";
 }
 ?>
+
+</div>
+</nav>
 
 
 </body>

@@ -41,7 +41,7 @@ $pdo->exec($sql);
 
 echo "新增完成";
 // 可以把header拿掉 檢查印出的是否有錯
-header("location:../index.php");
+header("location:../index.php?do=invoice_list");
 
 
 
