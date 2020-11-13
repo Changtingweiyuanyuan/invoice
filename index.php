@@ -8,6 +8,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>統一發票紀錄及對獎系統</title>
+    <style>
+        .number{
+            font-size:1.2rem;
+            color:red;
+            font-weight:bolder;
+        }
+    </style>
 </head>
 <body>
 

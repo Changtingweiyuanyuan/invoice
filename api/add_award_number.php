@@ -2,11 +2,12 @@
 include_once "../base.php";
 
 echo "<pre>";
-print_r($_POST);
+print_r(array_keys($_POST));
 echo "</pre>";
 
 $year=$_POST['year'];
 $period=$_POST['period'];
+
 
 // 特別獎的新增 type=1
 $sql="insert into 
@@ -42,6 +43,6 @@ foreach($_POST['add_six_prize'] as $six){
 
 
 echo "新增完成";
-header("location:../index.php?do=award_numbers");
+header("location:../index.php?do=award_numbers&pd=".$year."-".$period);
 
 ?>
