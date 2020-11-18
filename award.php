@@ -33,18 +33,20 @@ $awards=$pdo->query("select * from `award_numbers` where `year`='$year' && `peri
 // print_r($awards);
 // echo "</pre>";
 
+$all_res=-1;
+
 foreach($awards as $award){
     switch($award['type']){
         // 特別獎(8碼全中 發票號碼)
         case 1:
             // echo '號碼='.$number.'<br>';
             // echo '特別獎='.$award['number'].'<br>';
-            if($award['number']==$number){echo '號碼為'.$number.'<br>';echo '中特別獎啦~';}else{echo '特別獎沒中獎<br>';}
+            if($award['number']==$number){echo '號碼為'.$number.'<br>';echo '中特別獎啦~';$all_res=1;}else{echo '特別獎沒中獎<br>';}
         break;
         
         // 特獎(8碼全中 發票號碼)
         case 2:
-            if($award['number']==$number){echo '號碼為'.$number.'<br>';echo '中特獎啦~';}else{echo '特獎沒中獎<br>';}
+            if($award['number']==$number){echo '號碼為'.$number.'<br>';echo '中特獎啦~';$all_res=1;}else{echo '特獎沒中獎<br>';}
         break;
         
         // 頭獎-6獎
@@ -55,21 +57,34 @@ foreach($awards as $award){
             //     $mynumber=mb_substr($number['number'],$i,(8-$i),'utf8');
             //     if($target==$mynumber){echo '號碼為'.$number.'<br>';echo "中{$awardStr[$i]}獎啦~";}else{echo "{$awardStr[$i]}獎沒中";}
             // }
-
+        $res=-1;
             // 從六獎開始對到頭獎 如果六獎沒中 後面都不用對了
-            for($i=5;$i>=0;$i--){
-                $target=mb_substr($award['number'],$i,(8-$i),'utf8');
-                $mynumber=mb_substr($number,$i,(8-$i),'utf8');
-                if($target==$mynumber){echo '號碼為'.$number;echo "中{$awardStr[$i]}獎啦<br>";}else{break;}
+        for($i=5;$i>=0;$i--){
+            $target=mb_substr($award['number'],$i,(8-$i),'utf8');
+            $mynumber=mb_substr($number,$i,(8-$i),'utf8');
+            if($target==$mynumber){
+                // echo '號碼為'.$number;
+                // echo "中{$awardStr[$i]}獎啦<br>";
+                $res=$i;
+            }else{break;}
             }
+
+            // 新增$res 不會重複顯示中了五獎 中了六獎(只顯示五獎!)
+            // 當$res的值有改變 才會顯示獎項
+            if($res!=-1){
+            echo '號碼為'.$number;
+            echo "中{$awardStr[$res]}獎啦<br>";}
         break;
         
         // 增開六獎 後三碼一樣
         case 4:
-            if($award['number']==mb_substr($number,5,3,'utf8')){echo '號碼為'.$number;echo "中了增開六獎<br>";}
+            if($award['number']==mb_substr($number,5,3,'utf8')){echo '號碼為'.$number;echo "中了增開六獎<br>";$all_res=1;}
         break;
     }
 }
+if($all_res=-1){echo '很可惜喔都沒有中啦哈哈哈';}
+
+
 
 // echo substr($award['number'],$i,8-$i);
 
