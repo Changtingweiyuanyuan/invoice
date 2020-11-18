@@ -46,7 +46,7 @@ $m=ceil(date("m")/2);
 </ul>
 
 
-<div class="border d-flex p-2 mx-auto">
+<div class="border d-flex flex-column p-2 mx-auto">
 
 <!-- 中間內容 -->
 
