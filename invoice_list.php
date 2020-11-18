@@ -1,7 +1,11 @@
 <?php
 include_once "base.php";
 
-$sql="select * from `invoices` order by date desc";
+// 拿到期數了 放進sql
+$period=ceil(date("m")/2);
+echo $period;
+
+$sql="select * from `invoices` where period='$period' order by date desc";
 
 $rows=$pdo->query($sql)->fetchAll();
 ?>
