@@ -16,7 +16,7 @@ foreach($_POST as $key => $value){
     $tmp[]=$key;
 }
 
-// implode已經是把陣列value取出來了 不需要再執行下面的foreach
+// 已經是把陣列value取出來了 不需要再執行下面的foreach
 // foreach($_POST as $key => $value){
 //     $tmp2[]=$value;
 // }
