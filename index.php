@@ -8,29 +8,63 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>發票入口網站</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+    /* font-family: 'Mukta', sans-serif; */
+    body{
+        background-color:#fff1e6;
+        text-decoration:none;
+    }
     *{
         margin:0px;
         padding:0px;
-        font-family: 'Noto Sans TC', sans-serif;
+        font-family: 'Mukta', sans-serif;
+    }
+    a{
+        color:#000;
+    }
+    a:hover{
+        text-decoration:none;
+        color:#000;
+    }
+    .btn{
+        text-shadow: 0 8px 10px #c4b59d, 0px -2px 1px #fff1e6;
+    }
+    .header{
+        font-weight:bold;
+        font-size:3.5rem;
     }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row border" style="height:15vh;"><h1 class="m-auto">發票入口</h1></div>
+        <div class="row" style="height:15vh;"><h1 class="m-auto "><a href="?go=main" class="header">Let's check your invoices</a></h1></div>
         
         <navigation>
             <ul class="row d-flex justify-content-around my-0"  style="height:10vh;">
-                <il class="m-auto"><a href="#" class="btn btn-warning text-dark text-decoration-none">新增發票</a></il>
-                <il class="m-auto"><a href="#" class="btn btn-warning text-dark text-decoration-none">各期發票儲存</a></il>
-                <il class="m-auto"><a href="#" class="btn btn-warning text-dark text-decoration-none">對獎頁面</a></il>
+                <il class="m-auto">
+                <img src="plus-square-solid.svg" width="30px;" height="30px;">
+                <a href="?go=add_invoice" class="btn">新增發票</a>
+                </il>
+                <il class="m-auto">
+                <img src="clipboard-list-solid.svg" width="30px;" height="30px;">
+                <a href="?go=invoice_list" class="btn">各期發票儲存</a>
+                </il>
+                <il class="m-auto">
+                <img src="search-dollar-solid.svg" width="30px;" height="30px;">
+                <a href="?go=checkTheWinning" class="btn">對獎頁面</a>
+                </il>
             </ul>
         </navigation>
 
         <main>
             <div class="row border" style="height:75vh;">
-                <?php include_once "main.php";?>
+                <?php 
+                if(isset($_GET['go'])){
+                    $URL=$_GET['go'].".php";
+                    include $URL;
+                }else{
+                include_once "main.php";
+                }?>
             </div>
         </main>
     </div>
