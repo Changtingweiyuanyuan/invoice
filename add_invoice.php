@@ -20,7 +20,7 @@
 <form action="?go=add_invoice" class="p-4" method="post">
     <span>發票號碼 </span><input type="text" name="code" maxlength="2" class="col-2">
     <input type="text" name="nember" maxlength="8" class="col-4"><br>
-    <span>發票金額 </span><input type="number" name="payment"><br>
+    <span>發票金額 </span><input type="text" name="payment"><br>
 
     <span>發票期別 </span>
     <div class="row p-3">

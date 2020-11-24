@@ -59,7 +59,8 @@
         <main>
             <div class="row border" style="height:75vh;">
                 <?php 
-                if(isset($_GET['go'])){
+                if(isset($_GET['go']))
+                {
                     $URL=$_GET['go'].".php";
                     include $URL;
                 }else{
