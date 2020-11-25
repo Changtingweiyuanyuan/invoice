@@ -7,5 +7,5 @@ $pdo=new PDO($dsn,'root','');
 
 
 
-session_start();
+// session_start();
 ?>

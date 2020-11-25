@@ -1,4 +1,4 @@
-
+<p>第一二期</p>
 <table style="width:100%;">
 <tr class="row d-flex justify-content-around m-2">
 <td class="alert-warning">發票日期</td>

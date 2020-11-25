@@ -42,15 +42,15 @@
         <navigation>
             <ul class="row d-flex justify-content-around my-0"  style="height:10vh;">
                 <il class="m-auto">
-                <img src="plus-square-solid.svg" width="30px;" height="30px;">
+                <img src="images/plus-square-solid.svg" width="30px;" height="30px;">
                 <a href="?go=add_invoice" class="btn">新增發票</a>
                 </il>
                 <il class="m-auto">
-                <img src="clipboard-list-solid.svg" width="30px;" height="30px;">
+                <img src="images/clipboard-list-solid.svg" width="30px;" height="30px;">
                 <a href="?go=invoice_list" class="btn">各期發票儲存</a>
                 </il>
                 <il class="m-auto">
-                <img src="search-dollar-solid.svg" width="30px;" height="30px;">
+                <img src="images/search-dollar-solid.svg" width="30px;" height="30px;">
                 <a href="?go=checkTheWinning" class="btn">對獎頁面</a>
                 </il>
             </ul>
@@ -65,7 +65,8 @@
                     include $URL;
                 }else{
                 include_once "main.php";
-                }?>
+                }
+                ?>
             </div>
         </main>
     </div>
