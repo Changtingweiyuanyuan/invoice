@@ -31,63 +31,10 @@
     <span>發票期別 </span>
     <div class="row p-3">
 
-<!-- 判斷$period屬於哪一期 -->
-
-
-<?php
-        $period=date('Y-m').','.(date('m')+1).'月份';
-        $month=date('m');
-        $year=date('Y');
-
-    // if(isset($_GET['month'])){$m=$_GET['month'];
-
-        // if(isset($_GET['period'])){
-        //     if($_GET['period']=="+1"){
-        //         $m=$month;
-        //         if($m>=11){
-        //             $m=1;
-        //             $month=$m;
-        //             $y=$year;
-        //             $y=$y+1;
-        //             $year=$y;
-        //             $period=$y.'-'.($m).','.($m+1).'月份';
-        //         }
-        //         else{
-        //             $m=$m+2;
-        //             $month=$m;
-        //             $period=$y.'-'.($m).','.($m+1).'月份';
-        //         }
-        //     }else{echo $month;}
 
 
 
-            // else{
-                // 正常下一期
-                // if($m<11){
-                //     // echo $m;
-                //     $m=$m+2;
-                //     $period=$y.'-'.($m).','.($m+1).'月份';
-                // }
-        //         }
-        //         echo $period;
-        //     }else if($_GET['period']=="-1"){
-        //         if(date('m')==2){
-        //             // 跳去年年份
-        //             $y=$y-1;
-        //             $m=12;
-        //             $period=$y.'-'.($m-1).','.($m).'月份';
-        //         }else{
-        //         // 正常上一期
-        //         $period=$y.'-'.($m-2).','.($m-1).'月份<br>';
-        //         $m=$m-2;
-        //         }
-        //         echo $period;
-        // }else{$period=date('Y-m').','.(date('m')+1).'月份';
-        // }else{
-            
-        // }
-    // }
-?>
+
 
 
 
@@ -97,38 +44,54 @@
 
 
 
+    <!-- 判斷$period屬於哪一期 -->
+    <?php
+        
+        $thisMonth=date('m');
+        $thisYear=date('Y');
+
+if(isset($_GET['period'])){
+    // while($_GET['period']=='-1'){
+    //     // 沒有定義$two
+    //     $two=$two+2;
+    //     $prevMonth=strtotime($thisMonth,'-'.$two.' months');
+        if($thisMonth>=11){
+            $prevMonth=1;
+            // $one=$one+1;
+            // $prevYear=strtotime($thisYear,'-'.$one.' months');
+            $prevYear=$thisYear-1;
+            $period=$prevYear.'-'.$prevMonth.','.($prevMonth+1).'月份';
+        }else{
+            $preMonth=$thisMonth-2;
+            $preYear=$thisYear;
+            $period=$prevYear.'-'.$prevMonth.','.($prevMonth+1).'月份';
+        }
+    // }
 
 
+}else{
 
-    <div class="col-2">
-    <a href="?go=add_invoice&period=-1&month=<?= $m;?>&year=<?=$y?>">
+    $period=$thisYear.'-'.$thisMonth.','.($thisMonth+1).'月份';
+}
+
+?>
+
+
+    <div class="col-3">
+    <a href="?go=add_invoice&period=-1&month=".$prevMonth.>
+    <!-- <a href="?go=add_invoice&period=-1&month=<?=$prevMonth?>&year=<?=$prevYear?>"> -->
     <img src="images/angle-double-left-solid.svg" width="25px" height="25px">
     </a></div>
 
-    <!-- <div class="col-4" name="period">
+    <div class="col-5" name="period">
         <?= $period;?>
-
     </div>
-    <div class="col-2">
+
+    <!-- <div class="col-3">
     <a href="?go=add_invoice&period=+1&month=
-    <?= $month;?>
-    &year=<?= $year?>">
     <img src="images/angle-double-right-solid.svg" width="25px" height="25px">
     </a></div> -->
 
-<?php
-if(isset($_GET['month'])){
-$m=$_GET['month'];
-
-}else{
-$m=date('Y-m-d');
-}
-?>
-<div class="col-4"><?= $m;?></div>
-<div class="col-2">
-<a href="?go=add_invoice&month=<?= date(strtotime('+1 momth',$m));?>">
-<img src="images/angle-double-right-solid.svg" width="25px" height="25px">
-</a></div>
 
 
 <br><br>    

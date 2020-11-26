@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
     <title>發票入口網站</title>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
@@ -33,6 +34,7 @@
         font-weight:bold;
         font-size:3.5rem;
     }
+
     </style>
 </head>
 <body>
@@ -55,13 +57,12 @@
                 </il>
             </ul>
         </navigation>
-
+        <br><br>
         <main>
-            <div class="row border" style="height:75vh;">
+            <div class="內容區啦">
                 <?php 
                 if(isset($_GET['go']))
-                {
-                    $URL=$_GET['go'].".php";
+                {$URL=$_GET['go'].'.php';
                     include $URL;
                 }else{
                 include_once "main.php";
