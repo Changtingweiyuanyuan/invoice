@@ -31,19 +31,19 @@ switch($_GET['dealperiod']){
     break;
     // dealperiod=2 處理第二期的特別獎(1000萬)
     case 2:
-
+        
     break;
     case 3:
-
+        
     break;
     case 4:
-
+        
     break;
     case 5:
-
+        
     break;
     case 6:
-
+        
     break;
 }
 ?>
@@ -103,6 +103,7 @@ switch($_GET['dealperiod']){
                 // 頭獎
                 if($invoice['number']==$award['number']){
                     $_SESSION['type3_dindonNumber_get8']=$award['number'];
+                    $_SESSION['checkv3']=true;
                 // 2
                 }elseif(substr($invoice['number'],-7)==substr($award['number'],-7)){
                     $_SESSION['type3_dindonNumber_get7']=substr($award['number'],-7);
@@ -160,13 +161,17 @@ case 1:
     foreach($invoices as $invoice){
         foreach($awards as $award){
             if(substr($invoice['number'],-3)==$award['number']){
-                $type4[]=$award['number'];
+                $type4[]=$invoice['number'];
                 $_SESSION['type4_dindonNumbers']=[];
                 $_SESSION['type4_dindonNumbers']=$type4;
-                // print_r($_SESSION['type4_dindonNumbers']);
+                $_SESSION['checkv4']=true;
             }
         }
     }
+    // print_r($_SESSION['type4_dindonNumbers']);
+    // if((checkv6($_SESSION['type4_dindonNumbers'],$a))){
+    //     echo 'yes';
+    // }else{echo 'nooooo';}
 
 
 break;

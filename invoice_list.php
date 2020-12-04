@@ -26,7 +26,7 @@
             color:green;
         }
         .getIncrease6{
-            color:gray;
+            color:yellow;
         }
     </style>
 </head>
@@ -53,6 +53,9 @@ $invoices=$pdo->query($sql)->fetchALL(pdo::FETCH_ASSOC);
 // print_r($invoices);
 
 
+foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){}
+print_r($_SESSION['type4_dindonNumber']);
+
 foreach($invoices as $invoice){
     // print_r($invoice);
     $codeNumber=$invoice['code'].$invoice['number'];
@@ -63,31 +66,29 @@ foreach($invoices as $invoice){
     echo '<tr class="row d-flex justify-content-around m-2">';
     echo '<td class="col-4">'.$date."</td>";
     // 中獎號碼要變顏色
+
     if(isset($_SESSION['type1_dindonNumber']) && $_SESSION['type1_dindonNumber']==substr("$codeNumber",-8)){
         echo '<td class="col-4 getSpecialColor">'.$codeNumber."</td>";}
     elseif(isset($_SESSION['type2_dindonNumber']) && $_SESSION['type2_dindonNumber']==substr("$codeNumber",-8)){
         echo '<td class="col-4 getSuperColor">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get8']) && $_SESSION['type3_dindonNumber_get8']==substr("$codeNumber",-8)){
-        echo '<td class="col-4 getno1">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get7']) && $_SESSION['type3_dindonNumber_get7']==substr("$codeNumber",-7)){
-        echo '<td class="col-4 getno2">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get6']) && $_SESSION['type3_dindonNumber_get6']==substr("$codeNumber",-6)){
-        echo '<td class="col-4 getno3">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get5']) && $_SESSION['type3_dindonNumber_get5']==substr("$codeNumber",-5)){
-        echo '<td class="col-4 getno4">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get4']) && $_SESSION['type3_dindonNumber_get4']==substr("$codeNumber",-4)){
-        echo '<td class="col-4 getno5">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type3_dindonNumber_get3']) && $_SESSION['type3_dindonNumber_get3']==substr("$codeNumber",-3)){
-        echo '<td class="col-4 getno6">'.$codeNumber."</td>";}
-    elseif(isset($_SESSION['type4_dindonNumber']) && $_SESSION['type4_dindonNumber']==substr("$codeNumber",-3)){
-        // foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){
-        //     if($_SESSION['type4_dindonNumber']==substr("$codeNumber",-3)){
-                echo '<td class="col-4 getIncrease6">'.$codeNumber."</td>";
-            // }
-        // }
-        //  && $_SESSION['type4_dindonNumber']==substr("$codeNumber",-3)){
-
-        // echo '<td class="col-4 getIncrease6">'.$codeNumber."</td>";
+        
+    // elseif(isset($_SESSION['type3_dindonNumber_get8'])){
+    //     if($_SESSION['type3_dindonNumber_get8']==substr("$codeNumber",-8)){
+    //         echo '<td class="col-4 getno1">'.$codeNumber."</td>";}
+    //     elseif(isset($_SESSION['type3_dindonNumber_get7']) && $_SESSION['type3_dindonNumber_get7']==substr("$codeNumber",-7)){
+    //         echo '<td class="col-4 getno2">'.$codeNumber."</td>";}
+    //     elseif(isset($_SESSION['type3_dindonNumber_get6']) && $_SESSION['type3_dindonNumber_get6']==substr("$codeNumber",-6)){
+    //         echo '<td class="col-4 getno3">'.$codeNumber."</td>";}
+    //     elseif(isset($_SESSION['type3_dindonNumber_get5']) && $_SESSION['type3_dindonNumber_get5']==substr("$codeNumber",-5)){
+    //         echo '<td class="col-4 getno4">'.$codeNumber."</td>";}
+    //     elseif(isset($_SESSION['type3_dindonNumber_get4']) && $_SESSION['type3_dindonNumber_get4']==substr("$codeNumber",-4)){
+    //         echo '<td class="col-4 getno5">'.$codeNumber."</td>";}
+    //     elseif(isset($_SESSION['type3_dindonNumber_get3']) && $_SESSION['type3_dindonNumber_get3']==substr("$codeNumber",-3)){
+    //         echo '<td class="col-4 getno6">'.$codeNumber."</td>";}
+    // }
+    elseif(isset($_SESSION['type4_dindonNumbers'])&&checkv6($_SESSION['type4_dindonNumbers'],$invoice['number'])){
+        echo '<td class="col-4 getIncrease6">'.$codeNumber."</td>";
+        
     }else{
         echo '<td class="col-4">'.$codeNumber."</td>";
     }

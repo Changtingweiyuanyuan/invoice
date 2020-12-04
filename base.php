@@ -68,4 +68,16 @@ function to($url){
     header("location:".$url);
 }
 
+
+
+function checkv6($v6ary,$inv){
+    foreach($v6ary as $value){
+        if($value==$inv){
+            return true;
+        }else{return false;}
+    }
+}
+
+
+
 ?>
