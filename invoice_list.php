@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>發票們</title>
-    <style>
-        .invoice_list_period{
-            text-align:center;
-            font-size:30px;
-        }
-        .invoice_list_btn{
-            text-align:right;
-            text-shadow:0 0 0;
-        }
-        td{
-            text-align:center;
-        }
-        .getSpecialColor{
-            color:red;
-        }
-        .getSuperColor{
-            color:blue;
-        }
-        .getno1,.getno2{
-            color:green;
-        }
-        .getIncrease6{
-            color:yellow;
-        }
-    </style>
+    <link rel=stylesheet type="text/css" href="invoice.css">
 </head>
 <body>
     
@@ -52,9 +28,10 @@ $sql="select * from `invoices` where `date` LIKE '2020-01%' OR '2020-02%'";
 $invoices=$pdo->query($sql)->fetchALL(pdo::FETCH_ASSOC);
 // print_r($invoices);
 
-
-foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){}
-print_r($_SESSION['type4_dindonNumber']);
+// if(isset($_SESSION['type4_dindonNumbers'])){
+// foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){}
+// }
+// print_r($_SESSION['type4_dindonNumber']);
 
 foreach($invoices as $invoice){
     // print_r($invoice);
@@ -83,18 +60,16 @@ foreach($invoices as $invoice){
     //         echo '<td class="col-4 getno4">'.$codeNumber."</td>";}
     //     elseif(isset($_SESSION['type3_dindonNumber_get4']) && $_SESSION['type3_dindonNumber_get4']==substr("$codeNumber",-4)){
     //         echo '<td class="col-4 getno5">'.$codeNumber."</td>";}
-    //     elseif(isset($_SESSION['type3_dindonNumber_get3']) && $_SESSION['type3_dindonNumber_get3']==substr("$codeNumber",-3)){
+        // elseif(isset($_SESSION['type3_dindonNumber_get3']) && $_SESSION['type3_dindonNumber_get3']==substr("$codeNumber",-3)){
     //         echo '<td class="col-4 getno6">'.$codeNumber."</td>";}
     // }
-    elseif(isset($_SESSION['type4_dindonNumbers'])&&checkv6($_SESSION['type4_dindonNumbers'],$invoice['number'])){
-        echo '<td class="col-4 getIncrease6">'.$codeNumber."</td>";
-        
+    elseif(!empty($_SESSION['type4_dindonNumbers'])){
+        if(checkv6($_SESSION['type4_dindonNumbers'],$invoice['number'])){
+            echo '<td class="col-4 getIncrease6">'.$codeNumber."</td>";
+        }else{echo '<td class="col-4">'.$codeNumber."</td>";}
     }else{
         echo '<td class="col-4">'.$codeNumber."</td>";
     }
-
-
-
 
     echo '<td class="col-4">'.$payment."</td>";
     echo '</tr>';

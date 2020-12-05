@@ -162,16 +162,15 @@ case 1:
         foreach($awards as $award){
             if(substr($invoice['number'],-3)==$award['number']){
                 $type4[]=$invoice['number'];
-                $_SESSION['type4_dindonNumbers']=[];
-                $_SESSION['type4_dindonNumbers']=$type4;
-                $_SESSION['checkv4']=true;
             }
         }
     }
-    // print_r($_SESSION['type4_dindonNumbers']);
-    // if((checkv6($_SESSION['type4_dindonNumbers'],$a))){
-    //     echo 'yes';
-    // }else{echo 'nooooo';}
+    // print_r($type4);
+    if(isset($type4)){
+        $_SESSION['type4_dindonNumbers']=$type4;
+    }
+    print_r($_SESSION['type4_dindonNumbers']);
+
 
 
 break;
@@ -201,12 +200,11 @@ break;
 <?php
 
 
-
 // echo $_SESSION['type3_dindonNumber_get8'];
 // echo '<br>';
 // echo $_SESSION['type3_dindonNumber_get7'];
 
-to("?go=invoice_list");
+// to("?go=invoice_list");
 
 
 

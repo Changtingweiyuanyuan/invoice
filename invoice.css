@@ -1,0 +1,114 @@
+/* <link rel=stylesheet type="text/css" href="invoice.css"> */
+
+
+/* index.php */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+body{
+    background-color:#fff1e6;
+    text-decoration:none;
+}
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Libre Baskerville', serif;
+}
+a{
+    color:#000;
+}
+a:hover{
+    text-decoration:none;
+    color:#000;
+}
+.btn{
+    text-shadow: 0 8px 10px #c4b59d, 0px -2px 1px #fff1e6;
+}
+.header{
+    /* font-weight:bold; */
+    font-size:3.5rem;
+}
+.navigation{
+    position:fixed;
+    left:0px;
+    top:30%;
+    font-size:25px;
+}
+.內容區啦{
+    width:65vw;
+    margin:auto;
+}
+.invoice_list_period{
+    text-align:center;
+    font-size:30px;
+}
+.invoice_list_btn{
+    text-align:right;
+    text-shadow:0 0 0;
+}
+td{
+    text-align:center;
+}
+.getSpecialColor{
+    color:red;
+}
+.getSuperColor{
+    color:blue;
+}
+.getno1,.getno2{
+    color:green;
+}
+.getIncrease6{
+    color:yellow;
+}
+
+/* main.php */
+*{
+    font-weight:none;
+}
+.date{
+    width:100%;
+    height:65vh;
+    position:absolute;
+    top:0;
+    left:0;
+    /* background-color:#000; */
+    /* mix-blend-mode:multiply; */
+    font-size:200px;
+    font-weight:700;
+    color:#000;
+    
+}
+.textbg{
+    width:100%;
+    height:65vh;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.leftfooter{
+    font-size:25px;
+}
+.rightfooter{
+    font-size:14px;
+    position:absolute;
+    bottom:10%;
+    right:10%;
+    border:1px #000 solid;
+}
+a{
+    /* color:#c; */
+}
+
+/* login.php */
+
+/* add_invoice.php */
+form>*{
+    margin:5px;
+}
+.adbtn{
+    text-shadow: 0 0 0 #fff;
+}
+
+
+/* controller.php */
+
+

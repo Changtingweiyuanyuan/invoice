@@ -3,44 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    *{
-        font-weight:none;
-    }
-    .date{
-        width:100%;
-        height:65vh;
-        position:absolute;
-        top:0;
-        left:0;
-        /* background-color:#000; */
-        /* mix-blend-mode:multiply; */
-        font-size:200px;
-        font-weight:700;
-        color:#000;
-        
-    }
-    .textbg{
-        width:100%;
-        height:65vh;
-        position:absolute;
-        top:0;
-        left:0;
-    }
-    .leftfooter{
-        font-size:25px;
-    }
-    .rightfooter{
-        font-size:14px;
-        position:absolute;
-        bottom:10%;
-        right:10%;
-        border:1px #000 solid;
-    }
-    a{
-        /* color:#c; */
-    }
-    </style>
+    <link rel=stylesheet type="text/css" href="invoice.css">
 </head>
 <body>
 

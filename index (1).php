@@ -15,7 +15,7 @@
     <ul class="d-flex flex-column">
         <il>
         <img src="images/plus-square-solid.svg" width="30px" height="30px;"><br>
-        <a href="?go=add_invoice" class="btn mb-3">新增發票</a>
+        <a href="?go=add_invoice&year=<?=date('Y');?>&month=<?=date('m');?>" class="btn mb-3">新增發票</a>
         </il>
         <il>
         <img src="images/clipboard-list-solid.svg" width="30px" height="30px;"><br>

@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新增發票頁面</title>
     <link rel=stylesheet type="text/css" href="invoice.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://kit.fontawesome.com/bc80d402a1.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </head>
 <body>
@@ -49,33 +57,34 @@ $mmm=[
 if(isset($_GET['period'])){
         if($_GET['period']=="+1"){
             $m=$_GET['month'];
-            if($m>='11'){
-                $nextm='1';
-                $y=date('Y')+1;
-                $period=$y.'-'.$nextm.','.($nextm+1).'月份';
+            if($m>=11){
+                $m=1;
+                $y=$_GET['year']+1;
+                $period=$y.'-'.$m.','.($m+1).'月份';
             }elseif($m%2=='1'){
-                $nextm=$m+2;
+                $m=$m+2;
                 $y=date('Y');
-                $period=$y.'-'.$nextm.','.($nextm+1).'月份';
+                $period=$y.'-'.$m.','.($m+1).'月份';
+            
             }else{
-                $nextm=$m+2;
-                $y=date('Y');
-                $period=$y.'-'.($nextm-1).','.$nextm.'月份';
+                $m=$m+2;
+                $y=$_GET['year'];
+                $period=$y.'-'.$m.','.($m+1).'月份';
             }
         }elseif($_GET['period']=="-1"){
             $m=$_GET['month'];
-            if($m<='2'){
-                $prem='12';
-                $y=date('Y')-1;
-                $period=$y.'-'.($prem-1).','.$prem.'月份';
+            if($m<=2){
+                $m=12;
+                $y=$_GET['year']-1;
+                $period=$y.'-'.($m-1).','.$m.'月份';
             }elseif($m%2=='1'){
-                $prem=$m-2;
+                $m=$m-2;
                 $y=date('Y');
-                $period=$y.'-'.$prem.','.($prem+1).'月份';
+                $period=$y.'-'.$m.','.($m+1).'月份';
             }else{
-                $prem=$m-2;
-                $y=date('Y');
-                $period=$y.'-'.($prem-1).','.$prem.'月份';
+                $m=$m-2;
+                $y=$_GET['year'];
+                $period=$y.'-'.($m-1).','.$m.'月份';
             }
         }
 }else{
@@ -86,13 +95,13 @@ if(isset($_GET['period'])){
     }elseif($m%2=='1'){
         $period=$y.'-'.$m.','.($m+1).'月份';
     }else{$period=$y.'-'.($m-1).','.$m.'月份';}
-}
+} 
 
 ?>
 
 
     <div class="col-3">
-    <a href="?go=add_invoice&period=+1&month=<?=date('m')-1;?>">
+    <a href="?go=add_invoice&period=-1&year=<?=$y;?>&month=<?=$m;?>">
     <img src="images/angle-double-left-solid.svg" width="25px" height="25px">
     </a></div>
 
@@ -101,7 +110,7 @@ if(isset($_GET['period'])){
     </div>
 
     <div class="col-3">
-    <a href="?go=add_invoice&period=+1&month=<?=date('m')+1;?>">
+    <a href="?go=add_invoice&period=+1&year=<?=$y;?>&month=<?=$m;?>">
     <img src="images/angle-double-right-solid.svg" width="25px" height="25px">
     </“a></div>
 
