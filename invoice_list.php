@@ -38,7 +38,7 @@ foreach($invoices as $invoice){
     $codeNumber=$invoice['code'].$invoice['number'];
     $payment=$invoice['payment'];
     $date=$invoice['date'];
-    foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){}
+    // foreach($_SESSION['type4_dindonNumbers'] as $_SESSION['type4_dindonNumber']){}
 
     echo '<tr class="row d-flex justify-content-around m-2">';
     echo '<td class="col-4">'.$date."</td>";

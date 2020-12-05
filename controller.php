@@ -50,7 +50,10 @@
             }
             echo '</td>';
             echo '<td>'.$t1value['number'].'</td>';
+            echo '<td><a href="revise_awards.php?period=1&revise='.$t1value['number'].'" class="btn">修改</a></td>';
             echo '</tr>';
+            
+            
         }
         ?>
         <tr><td colspan="2">&emsp;</td></tr>
@@ -61,9 +64,10 @@
             <td> </td>
         </tr>
     </table>
-    <a href="revise_php?revise=1" class="btn">修改</a>
-    <button type="submit" class="btn">新增中獎號碼</button>
-    </form>
+    <div class="text-center">
+        <button type="submit" class="btn">新增中獎號碼</button>
+    </div>    
+</form>
     </div>
     <br><br><hr><br><br>
     <br><br><hr><br><br>

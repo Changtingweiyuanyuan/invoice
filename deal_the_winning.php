@@ -204,7 +204,7 @@ break;
 // echo '<br>';
 // echo $_SESSION['type3_dindonNumber_get7'];
 
-// to("?go=invoice_list");
+to("?go=invoice_list");
 
 
 

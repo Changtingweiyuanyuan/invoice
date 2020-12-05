@@ -71,11 +71,14 @@ function to($url){
 
 
 function checkv6($v6ary,$inv){
+    $result=false;
     foreach($v6ary as $value){
-        if($value==$inv){
-            return true;
-        }else{return false;}
+        if(substr($value,-3)==substr($inv,-3)){
+            // print_r($v6ary);
+            $result=true;
+        }
     }
+    return $result;
 }
 
 
