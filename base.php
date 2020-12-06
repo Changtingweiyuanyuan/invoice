@@ -69,7 +69,7 @@ function to($url){
 }
 
 
-
+// 從發票裡面找出是否符合陣列$v6ary的值 一樣的話就傳回true;
 function checkv6($v6ary,$inv){
     $result=false;
     foreach($v6ary as $value){
@@ -81,6 +81,17 @@ function checkv6($v6ary,$inv){
     return $result;
 }
 
-
+// 從發票裡面找出是否符合陣列$v6ary的值 一樣的話就傳回true;
+function checkinv($ary,$inv,$number){
+    $result=false;
+    if(is_array($ary)){
+        foreach($ary as $v){
+            if(substr($v,-$number)==substr($inv,-$number)){
+                $result=true;
+            }
+        }
+    }
+    return $result;
+}
 
 ?>
