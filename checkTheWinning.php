@@ -55,17 +55,86 @@
 </head>
 <body>
     
+    
+<?php
+// 一開始跳到這個頁面 要顯示第幾期
+switch(date('m')){
+    case 1||2:
+        $pp=1;
+    break;
+    case 3||4:
+        $pp=2;
+    break;
+    case 5||6:
+        $pp=3;
+    break;
+    case 7||8:
+        $pp=4;
+    break;
+    case 9||10:
+        $pp=5;
+    break;
+    case 11||12:
+        $pp=6;
+    break;
+}
+
+include_once "base.php";
+?>
+<!-- 期數按鈕 -->
+<form method="post" action="index.php?go=checkTheWinning">
+    <button type="submit" name="p1" class="btn">1</button>
+    <button type="submit" name="p2" class="btn">2</button>
+    <button type="submit" name="p3" class="btn">3</button>
+    <button type="submit" name="p4" class="btn">4</button>
+    <button type="submit" name="p5" class="btn">5</button>
+    <button type="submit" name="p6" class="btn">6</button>
+</form>
 
 <?php
-include_once "base.php";
+
+if(!empty($_POST)){
+    if(isset($_POST['p1'])){
+        $pp=1;
+    }elseif(isset($_POST['p2'])){
+        $pp=2;
+    }elseif(isset($_POST['p3'])){
+        $pp=3;
+    }elseif(isset($_POST['p4'])){
+        $pp=4;
+    }elseif(isset($_POST['p5'])){
+        $pp=5;
+    }elseif(isset($_POST['p6'])){
+        $pp=6;
+    }
+}
+
+$sql="SELECT * FROM `award_numbers` WHERE `period`='".$pp."' ORDER BY `type`";
+$datas=$pdo->query($sql)->fetchALL(pdo::FETCH_ASSOC);
+
+// 取增開六獎號碼(另外設定因為開獎號碼不固定)
+$sql_v6="SELECT * FROM `award_numbers` WHERE `period`='".$pp."' AND `type`='4'";
+$d6s=$pdo->query($sql_v6)->fetchALL(pdo::FETCH_ASSOC);
+// print_r($d6s);
+// echo '<br>';
+// echo '<br>';
+// print_r($d6);
+
+
+
 
 ?>
+
 <table class="CTWtable">
 <tr class="row">
     <th class="col-6 offset-1 awardtype1">
         <div class="circle type1circle"></div>
     10Million</th>
-    <td class="col-5 offset-0 number">12345678</td>
+    <td class="col-5 offset-0 number">
+        <?php
+            print_r($datas[0]['number']);
+        ?>
+    </td>
 </tr>
 <tr class="row mb-4">
     <td class="col-7 offset-5 remark">同期發票收執聯8位數號碼與特別獎號碼相同</td>
@@ -74,7 +143,11 @@ include_once "base.php";
     <th class="col-5 offset-3 awardtype2">
         <div class="circle type2circle"></div>
     2Million</th>
-    <td class="col-4 offset-0 number">12345678</td>
+    <td class="col-4 offset-0 number">
+        <?php
+            print_r($datas[1]['number']);
+        ?>
+    </td>
 </tr>
 <tr class="row mb-4">
     <td class="col-7 offset-5 remark">同期發票收執聯8位數號碼與特獎號碼相同</td>
@@ -83,18 +156,40 @@ include_once "base.php";
     <th class="col-4 offset-1 awardtype3">
         <div class="circle"></div>
     200,000</th>
-    <td class="col-6 offset-1 number">12345678</td>
+    <td class="col-6 offset-1 number">
+        <?php
+            print_r($datas[2]['number']);
+        ?>
+    </td>
 </tr>
 <tr class="row">
     <td class="col-5"> </td>
-    <td class="col-6 offset-1 number">87654321</td>
+    <td class="col-6 offset-1 number">
+        <?php
+            print_r($datas[3]['number']);
+        ?>
+    </td>
 </tr>
 <tr class="row">
     <td class="col-5"> </td>
-    <td class="col-6 offset-1 number">12345678</td>
+    <td class="col-6 offset-1 number">
+        <?php
+            print_r($datas[4]['number']);
+        ?>
+    </td>
 </tr>
 <tr class="row mb-4">
     <td class="col-7 offset-5 remark">同期發票收執聯8位數號碼與頭獎號碼相同</td>
+</tr>
+
+<tr>
+    <?php
+        foreach($d6s as $d6){
+        echo '<td>';
+            echo $d6['number'];
+        echo '</td>';
+        }
+    ?>
 </tr>
 
 </table>
