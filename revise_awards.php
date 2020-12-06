@@ -83,8 +83,128 @@ if(isset($_GET['period'])&&!empty($_GET['revise'])){
         // echo $sql1;
         $pdo->exec($sql1);
         header("location:controller.php");
-
     }
+    elseif(isset($_POST['determine_revise'])&&$_GET['period']==2){
+        $y="`year`='".$revise_inv['year']."'";
+        $p="`period`='".$revise_inv['period']."'";
+        $t="`type`='".$revise_inv['type']."'";
+        $n="`number`='".$revise_inv['number']."'";
+
+        if(($_POST['year'])>0){
+            $y="`year`='".$_POST['year']."'";
+        }
+        if(($_POST['period'])>0){
+            $p="`period`='".$_POST['period']."'";
+        }
+        if(($_POST['type'])>0){
+            $t="`type`='".$_POST['type']."'";
+        }
+        if(($_POST['number'])>0){
+            $n="`number`='".$_POST['number']."'";
+        }
+
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='2' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
+    }
+    elseif(isset($_POST['determine_revise'])&&$_GET['period']==3){
+        $y="`year`='".$revise_inv['year']."'";
+        $p="`period`='".$revise_inv['period']."'";
+        $t="`type`='".$revise_inv['type']."'";
+        $n="`number`='".$revise_inv['number']."'";
+
+        if(($_POST['year'])>0){
+            $y="`year`='".$_POST['year']."'";
+        }
+        if(($_POST['period'])>0){
+            $p="`period`='".$_POST['period']."'";
+        }
+        if(($_POST['type'])>0){
+            $t="`type`='".$_POST['type']."'";
+        }
+        if(($_POST['number'])>0){
+            $n="`number`='".$_POST['number']."'";
+        }
+
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='3' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
+    }
+    elseif(isset($_POST['determine_revise'])&&$_GET['period']==4){
+        $y="`year`='".$revise_inv['year']."'";
+        $p="`period`='".$revise_inv['period']."'";
+        $t="`type`='".$revise_inv['type']."'";
+        $n="`number`='".$revise_inv['number']."'";
+
+        if(($_POST['year'])>0){
+            $y="`year`='".$_POST['year']."'";
+        }
+        if(($_POST['period'])>0){
+            $p="`period`='".$_POST['period']."'";
+        }
+        if(($_POST['type'])>0){
+            $t="`type`='".$_POST['type']."'";
+        }
+        if(($_POST['number'])>0){
+            $n="`number`='".$_POST['number']."'";
+        }
+
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='4' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
+    }
+    elseif(isset($_POST['determine_revise'])&&$_GET['period']==5){
+        $y="`year`='".$revise_inv['year']."'";
+        $p="`period`='".$revise_inv['period']."'";
+        $t="`type`='".$revise_inv['type']."'";
+        $n="`number`='".$revise_inv['number']."'";
+
+        if(($_POST['year'])>0){
+            $y="`year`='".$_POST['year']."'";
+        }
+        if(($_POST['period'])>0){
+            $p="`period`='".$_POST['period']."'";
+        }
+        if(($_POST['type'])>0){
+            $t="`type`='".$_POST['type']."'";
+        }
+        if(($_POST['number'])>0){
+            $n="`number`='".$_POST['number']."'";
+        }
+
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='5' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
+    }
+    elseif(isset($_POST['determine_revise'])&&$_GET['period']==6){
+        $y="`year`='".$revise_inv['year']."'";
+        $p="`period`='".$revise_inv['period']."'";
+        $t="`type`='".$revise_inv['type']."'";
+        $n="`number`='".$revise_inv['number']."'";
+
+        if(($_POST['year'])>0){
+            $y="`year`='".$_POST['year']."'";
+        }
+        if(($_POST['period'])>0){
+            $p="`period`='".$_POST['period']."'";
+        }
+        if(($_POST['type'])>0){
+            $t="`type`='".$_POST['type']."'";
+        }
+        if(($_POST['number'])>0){
+            $n="`number`='".$_POST['number']."'";
+        }
+
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='6' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
+    }
+
 }else{header("location:controller.php");}
 ?>
 </body>

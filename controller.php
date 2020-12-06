@@ -85,18 +85,88 @@
         ?>
     </div>
 </form>
-    </div>
-    <br><br><hr><br><br>
-    <br><br><hr><br><br>
-    <br><br><hr><br><br>
-    <br><br><hr><br><br>
-    <br><br><hr><br><br>
+</div>
     <br><br><hr><br><br>
     <br><br><hr><br><br>
     <br><br><hr><br><br>
     <br><br><hr><br><br>
 
 <!-- 2020年第二期中獎號碼 -->
+
+    <?php
+    $sql1="SELECT `period`,`number`,`type` FROM `award_numbers` WHERE `period`='2' AND `year`='2020' ORDER BY `type`";
+    $type1=$pdo->query($sql1)->fetchAll(pdo::FETCH_ASSOC);
+    ?>
+    <div class="text-center">
+    <a href="index.php?go=main" class="go_index">#</a>
+    </div>
+    <div>
+    <table class="controllerTable border mt-5 container text-center">
+        <tr><td colspan="4">03&04</td></tr>
+        <tr class="border">
+            <th>獎項</th>
+            <th>中獎號碼</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        <?php
+        foreach($type1 as $t2value){
+            echo '<tr class="col-1">';
+            echo '<td class="text-left">';
+            switch($t2value['type']){
+                case 1:
+                    echo '特別獎(1000萬)';
+                break;
+                case 2:
+                    echo '特獎(200萬)';
+                break;
+                case 3:
+                    echo '頭獎-六獎(20萬-200)';
+                break;
+                case 4:
+                    echo '增開六獎(200)';
+                break;
+            }
+            echo '</td>';
+                if(!empty($_GET['insert'])&&$t2value['number']==$_GET['insert']){
+                    echo '<td class="insert">'.$t2value['number'].'</td>';
+                }else{
+                    echo '<td>'.$t2value['number'].'</td>';
+                }
+
+
+            echo '<td><a href="revise_awards.php?period=2&revise='.$t2value['number'].'" class="btn">修改</a></td>';
+            echo '<td><a href="awards_api/del_awards.php?period=2&del='.$t2value['number'].'" class="btn">刪除</a></td>';
+            echo '</tr>';
+            
+            
+        }
+        ?>
+        <tr><td colspan="4">&emsp;</td></tr>
+        <tr>
+            <form method="post" action="awards_api/add_awards.php">
+            <td><input type="text" placeholder=" type1~4" name="add_type1"></td>
+            <td><input type="text" placeholder=" award_number" name="add_number1"></td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    <div class="text-center">
+        <button type="submit" class="btn">新增中獎號碼</button>
+    </div>    
+    <div class="text-center deltext">
+        <?php
+        if(isset($_SESSION['del'])){echo $_SESSION['del'];}
+        ?>
+    </div>
+</form>
+</div>
+
+    <br><br><hr><br><br>
+    <br><br><hr><br><br>
+    <br><br><hr><br><br>
+    <br><br><hr><br><br>
+    <br><br><hr><br><br>
 <!-- 2020年第三期中獎號碼 -->
 <!-- 2020年第四期中獎號碼 -->
 <!-- 2020年第五期中獎號碼 -->
