@@ -84,12 +84,16 @@ elseif(isset($_GET['deal_period'])){
 
 
 <div class="invoice_list_period">
-<p class="col-12">
+<p class="col-12">目前顯示為第
 <?php
 echo $pp;
 ?>
-</p>
-<a href="?go=invoice_list">#</a>
+期</p>
+<!-- <a href="?go=invoice_list">#</a><br> -->
+<div class="colormeaning colormeaning1">&nbsp;</div><span class="meaningtext">特別獎</span>
+<div class="colormeaning colormeaning2">&nbsp;</div><span class="meaningtext">特獎</span>
+<div class="colormeaning colormeaning3">&nbsp;</div><span class="meaningtext">頭獎以下</span>
+<div class="colormeaning colormeaning4">&nbsp;</div><span class="meaningtext">增開六獎</span>
 
 </div><br>
 <i class="fas fa-copy"></i>
@@ -151,6 +155,10 @@ elseif(!empty($_SESSION['type3_dindonNumbers']) && checkinv($_SESSION['type3_din
     // 中三碼
 }elseif(!empty($_SESSION['type3_dindonNumbers']) && checkinv($_SESSION['type3_dindonNumbers'],$invoice['number'],3)){
     echo '<td class="col-4 getType3_3">'.$codeNumber."</td>";
+
+    // 頭獎base.php funtion有問題 只要符合都會當成中8碼; 所以無法單獨放大中獎號
+    // echo '<td class="col-4 getType3_3">'.substr($codeNumber,7);
+    // echo '<p class="getNumberblod">'.substr($codeNumber,3)."</p></td>";
     
 
 

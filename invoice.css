@@ -36,6 +36,8 @@ a:hover{
     width:65vw;
     margin:auto;
 }
+
+/* invoice_list.php */
 .invoice_list_period{
     text-align:center;
     font-size:30px;
@@ -72,8 +74,34 @@ td{
     color:#bb66bb;
 }
 .getIncrease6{
-    color:yellow;
+    color:#1c6315;
 }
+
+.invoice_list_period .colormeaning{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+}
+.colormeaning1{
+    background-color:red;
+}
+.colormeaning2{
+    background-color:blue;
+}
+.colormeaning3{
+    background-color:#bb66bb;
+}
+.colormeaning4{
+    background-color:#1c6315;
+}
+.meaningtext{
+    font-size:20px;
+}
+.getNumber{
+    font-size:25px;
+}
+
 
 /* main.php */
 *{
