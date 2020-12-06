@@ -19,7 +19,7 @@
     <!-- 2020年第一期中獎號碼 -->
     <?php
     session_start();
-    $sql1="SELECT `period`,`number`,`type` FROM `award_numbers` WHERE `period`='1' AND `year`='2020'";
+    $sql1="SELECT `period`,`number`,`type` FROM `award_numbers` WHERE `period`='1' AND `year`='2020' ORDER BY `type`";
     $type1=$pdo->query($sql1)->fetchAll(pdo::FETCH_ASSOC);
     ?>
     <div>
@@ -58,7 +58,7 @@
         ?>
         <tr><td colspan="2">&emsp;</td></tr>
         <tr>
-            <form method="post" action="ass_awards.php">
+            <form method="post" action="awards_api/add_awards.php">
             <td><input type="text" placeholder=" type1~4" name="add_type1"></td>
             <td><input type="text" placeholder=" award_number" name="add_number1"></td>
             <td> </td>

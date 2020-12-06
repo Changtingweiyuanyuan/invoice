@@ -79,14 +79,13 @@ if(isset($_GET['period'])&&!empty($_GET['revise'])){
             $n="`number`='".$_POST['number']."'";
         }
 
-        $sql="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='1' AND `number`='".$_GET['revise']."'";
-        echo $sql;
-        $do_revise=$pdo->exec($sql);
-        echo $do_revise;
+        $sql1="UPDATE `award_numbers` SET ".$n.",".$t.",".$y.",".$p." WHERE `year`='2020' AND `period`='1' AND `number`='".$_GET['revise']."'";
+        // echo $sql1;
+        $pdo->exec($sql1);
+        header("location:controller.php");
 
     }
-}else{echo '123';}
-// }else{header("location:controller.php");}
+}else{header("location:controller.php");}
 ?>
 </body>
 </html>
