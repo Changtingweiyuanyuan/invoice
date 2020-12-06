@@ -22,6 +22,9 @@
     $sql1="SELECT `period`,`number`,`type` FROM `award_numbers` WHERE `period`='1' AND `year`='2020' ORDER BY `type`";
     $type1=$pdo->query($sql1)->fetchAll(pdo::FETCH_ASSOC);
     ?>
+    <div class="text-center">
+    <a href="index.php?go=main" class="go_index">#</a>
+    </div>
     <div>
     <table class="controllerTable border mt-5 container text-center">
         <tr><td colspan="4">01&02</td></tr>
@@ -76,7 +79,7 @@
     <div class="text-center">
         <button type="submit" class="btn">新增中獎號碼</button>
     </div>    
-    <div class="text-center">
+    <div class="text-center deltext">
         <?php
         if(isset($_SESSION['del'])){echo $_SESSION['del'];}
         ?>
