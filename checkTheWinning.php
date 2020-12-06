@@ -26,6 +26,7 @@
         tr .number{
             font-size:30px;
             margin:auto;
+            color:#ee8855;
         }
         .circle{
             border:2px solid #111;
@@ -50,6 +51,14 @@
         }
         .remark{
             font-size:14px;
+        }
+
+        .ctitle{
+            white-space: nowrap;
+        }
+        .click{
+            font-size:15px;
+            text-align:center;
         }
     </style>
 </head>
@@ -78,17 +87,19 @@ switch(date('m')){
         $pp=6;
     break;
 }
+#click{}
 
 include_once "base.php";
 ?>
 <!-- 期數按鈕 -->
-<form method="post" action="index.php?go=checkTheWinning">
-    <button type="submit" name="p1" class="btn">1</button>
-    <button type="submit" name="p2" class="btn">2</button>
-    <button type="submit" name="p3" class="btn">3</button>
-    <button type="submit" name="p4" class="btn">4</button>
-    <button type="submit" name="p5" class="btn">5</button>
-    <button type="submit" name="p6" class="btn">6</button>
+
+<form method="post" action="index.php?go=checkTheWinning" class="text-center ctitle">
+    <button type="submit" name="p1" class="btn click">第1期</button>
+    <button type="submit" name="p2" class="btn click">第2期</button>
+    <button type="submit" name="p3" class="btn click">第3期</button>
+    <button type="submit" name="p4" class="btn click">第4期</button>
+    <button type="submit" name="p5" class="btn click">第5期</button>
+    <button type="submit" name="p6" class="btn click">第6期</button>
 </form>
 
 <?php
@@ -182,10 +193,13 @@ $d6s=$pdo->query($sql_v6)->fetchALL(pdo::FETCH_ASSOC);
     <td class="col-7 offset-5 remark">同期發票收執聯8位數號碼與頭獎號碼相同</td>
 </tr>
 
-<tr>
+<tr class="row">
+    <td class="col-12 remark">同期發票收執聯末3位數號碼與增開號碼相同</td>
+</tr>
+<tr class="row mb-4">
     <?php
         foreach($d6s as $d6){
-        echo '<td>';
+        echo '<td class="m-auto number">';
             echo $d6['number'];
         echo '</td>';
         }
