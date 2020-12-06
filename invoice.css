@@ -110,5 +110,8 @@ form>*{
 
 
 /* controller.php */
-
+.controllerTable .insert{
+    font-size:30px;
+    color:blue;
+}
 

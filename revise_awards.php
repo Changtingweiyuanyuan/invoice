@@ -19,7 +19,7 @@ if(isset($_GET['period'])&&!empty($_GET['revise'])){
 // 撈出要修改的那筆資料
     $sql="SELECT * FROM `award_numbers` WHERE `year`='2020' AND `number`='".$_GET['revise']."'";
     $revise_inv=$pdo->query($sql)->fetch(pdo::FETCH_ASSOC);
-    print_r($revise_inv);
+    // print_r($revise_inv);
 ?>
 
 

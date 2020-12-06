@@ -23,11 +23,12 @@
     $type1=$pdo->query($sql1)->fetchAll(pdo::FETCH_ASSOC);
     ?>
     <div>
-    <table class="border mt-5 container text-center">
-        <tr><td colspan="3">01&02</td></tr>
+    <table class="controllerTable border mt-5 container text-center">
+        <tr><td colspan="4">01&02</td></tr>
         <tr class="border">
             <th>獎項</th>
             <th>中獎號碼</th>
+            <th> </th>
             <th> </th>
         </tr>
         <?php
@@ -49,24 +50,37 @@
                 break;
             }
             echo '</td>';
-            echo '<td>'.$t1value['number'].'</td>';
+                if(!empty($_GET['insert'])&&$t1value['number']==$_GET['insert']){
+                    echo '<td class="insert">'.$t1value['number'].'</td>';
+                }else{
+                    echo '<td>'.$t1value['number'].'</td>';
+                }
+
+
             echo '<td><a href="revise_awards.php?period=1&revise='.$t1value['number'].'" class="btn">修改</a></td>';
+            echo '<td><a href="awards_api/del_awards.php?period=1&del='.$t1value['number'].'" class="btn">刪除</a></td>';
             echo '</tr>';
             
             
         }
         ?>
-        <tr><td colspan="2">&emsp;</td></tr>
+        <tr><td colspan="4">&emsp;</td></tr>
         <tr>
             <form method="post" action="awards_api/add_awards.php">
             <td><input type="text" placeholder=" type1~4" name="add_type1"></td>
             <td><input type="text" placeholder=" award_number" name="add_number1"></td>
+            <td> </td>
             <td> </td>
         </tr>
     </table>
     <div class="text-center">
         <button type="submit" class="btn">新增中獎號碼</button>
     </div>    
+    <div class="text-center">
+        <?php
+        if(isset($_SESSION['del'])){echo $_SESSION['del'];}
+        ?>
+    </div>
 </form>
     </div>
     <br><br><hr><br><br>
