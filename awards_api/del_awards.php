@@ -10,7 +10,29 @@ if(isset($_GET['period'])&&($_GET['del'])){
     $sql="DELETE FROM `award_numbers` WHERE `period`='".$_GET['period']."' AND `number`='".$_GET['del']."'";
     echo $sql;
     $pdo->exec($sql);
-    $_SESSION['del']='已刪除'.$_GET['del'].'中獎號碼~';
+    
+    switch($_GET['period']){
+        case 1:
+            $_SESSION['del1']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+        case 2:
+            $_SESSION['del2']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+        case 3:
+            $_SESSION['del3']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+        case 4:
+            $_SESSION['del4']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+        case 5:
+            $_SESSION['del5']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+        case 6:
+            $_SESSION['del6']='已刪除第'.$_GET['period'].'期'.$_GET['del'].'中獎號碼~';
+        break;
+    }
+    
+    
     header("location:../controller.php");
     exit;
 }else{

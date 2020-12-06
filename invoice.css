@@ -115,6 +115,11 @@ form>*{
     color:blue;
 }
 
+.controllerTable tr td.periodtitle{
+    font-size:40px;
+    color:red;
+}
+
 .deltext{
     font-size:30px;
 }
